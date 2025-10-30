@@ -29,10 +29,8 @@ def lecture05_01():
     for x in range(g_width):
         for y in range(g_height):
             b, g, r = google_img[y, x]
-            # もし白色(255,255,255)だったら置き換える
+            # もし白色だったら置き換える
             if (b, g, r) == (255, 255, 255):
-                # カメラ画像のどの位置からピクセルを取得するか計算
-                # グリッド状に並べるため、座標を640x480のサイズで繰り返す
                 cap_x = x % c_width
                 cap_y = y % c_height
                 google_img[y, x] = capture_img[cap_y, cap_x]
