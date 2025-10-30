@@ -7,6 +7,7 @@ def lecture05_01():
     # カメラキャプチャ実行
     app = MyVideoCapture()
     app.run()
+    app.write_img
 
     # 画像をローカル変数に保存
     google_img : cv2.Mat = cv2.imread('images/google.png')
@@ -24,8 +25,10 @@ def lecture05_01():
             # もし白色(255,255,255)だったら置き換える
             if (b, g, r) == (255, 255, 255):
                 pass
-                #implement me
-
+                
+src_x = x % c_width   # 横方向にタイル
+src_y = y % c_hight   # 縦方向にタイル
+google_img[y, x] = capture_img[src_y, src_x]
     # 書き込み処理
-    # implement me
-
+  
+app.write_img('output_image/lecture05_01_k24066.png')
